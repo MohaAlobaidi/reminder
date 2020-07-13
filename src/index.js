@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
 import './index.css';
 import App from './App';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import reminders from './component/reminder/reminders'
+
 import * as serviceWorker from './serviceWorker';
 
+const store =createStore(reminders)
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode> </Provider>,
   document.getElementById('root')
 );
 
